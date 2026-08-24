@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Skills — Sumit Atkari. Frontend, backend, cloud, low-code and AI skills." />
+  <title>Skills — Sumit Atkari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Sumit Atkari</a>
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link active">Skills</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Skills</h1>
+        <p class="hero-sub muted">A concise view of technical skills and tools.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="skills-grid">
+          <div class="skill-card card glass">
+            <h3>Frontend</h3>
+            <p class="muted">Building accessible, responsive interfaces.</p>
+            <div class="skill-bar" aria-hidden="true"><div class="skill-fill" data-percent="92"></div></div>
+            <div class="skill-meta"><span>HTML</span><span>92%</span></div>
+            <ul class="skill-list">
+              <li>HTML (Semantic, Accessibility)</li>
+              <li>CSS (Flexbox, Grid, Animations)</li>
+              <li>JavaScript (ES6+, DOM, Fetch API)</li>
+            </ul>
+          </div>
+          <div class="skill-card card glass">
+            <h3>Languages</h3>
+            <p class="muted">General-purpose programming & data handling.</p>
+            <div class="skill-bar" aria-hidden="true"><div class="skill-fill" data-percent="82"></div></div>
+            <div class="skill-meta"><span>Python</span><span>82%</span></div>
+            <ul class="skill-list">
+              <li>Python (Scripting, Data)</li>
+              <li>C# (App development)</li>
+              <li>SQL (Relational databases)</li>
+            </ul>
+          </div>
+          <div class="skill-card card glass">
+            <h3>Dev Tools</h3>
+            <p class="muted">Versioning and workflows.</p>
+            <div class="skill-bar" aria-hidden="true"><div class="skill-fill" data-percent="86"></div></div>
+            <div class="skill-meta"><span>Git & GitHub</span><span>86%</span></div>
+            <ul class="skill-list">
+              <li>Git &amp; GitHub (PRs, CI)</li>
+              <li>CI/CD basics</li>
+              <li>VS Code</li>
+            </ul>
+          </div>
+          <div class="skill-card card glass">
+            <h3>Cloud & Low-Code</h3>
+            <p class="muted">Cloud services and low-code platforms.</p>
+            <div class="skill-bar" aria-hidden="true"><div class="skill-fill" data-percent="78"></div></div>
+            <div class="skill-meta"><span>Azure</span><span>78%</span></div>
+            <ul class="skill-list">
+              <li>Microsoft Azure (App Services, Storage)</li>
+              <li>Microsoft Fabric</li>
+              <li>Power Apps</li>
+            </ul>
+          </div>
+          <div class="skill-card card glass">
+            <h3>AI</h3>
+            <p class="muted">Practical AI tooling and ideas.</p>
+            <div class="skill-bar" aria-hidden="true"><div class="skill-fill" data-percent="74"></div></div>
+            <div class="skill-meta"><span>AI / Gen AI</span><span>74%</span></div>
+            <ul class="skill-list">
+              <li>Generative AI workflows</li>
+              <li>Prompt engineering basics</li>
+            </ul>
+          </div>
+          <div class="skill-card card glass">
+            <h3>Other</h3>
+            <div class="skill-bar" aria-hidden="true"><div class="skill-fill" data-percent="80"></div></div>
+            <div class="skill-meta"><span>General</span><span>80%</span></div>
+            <ul class="skill-list">
+              <li>Problem solving</li>
+              <li>Design thinking</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <a class="btn btn-primary" href="projects.html">View Projects</a>
+        <a class="btn btn-ghost" href="certifications.html">View Certifications</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="brand">Sumit Atkari</div>
+      </div>
+      <div class="copyright">© <span id="year"></span></div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

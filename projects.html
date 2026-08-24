@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Projects — Sumit Atkari. Portfolio project showcase." />
+  <title>Projects — Sumit Atkari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Sumit Atkari</a>
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="projects.html" class="nav-link active">Projects</a></li>
+          <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Projects</h1>
+        <p class="hero-sub muted">Selected projects with brief descriptions and links.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container projects-grid">
+        <article class="project-card card">
+          <img src="assets/images/project-placeholder.svg" alt="Project screenshot placeholder">
+          <div class="project-body">
+            <h3>Project One</h3>
+            <p>Professional description placeholder. Replace with actual project details and achievements.</p>
+            <div class="project-meta">Tech: HTML, CSS, JavaScript</div>
+            <div class="project-actions">
+              <a class="btn btn-sm" href="#" aria-label="GitHub">GitHub</a>
+              <a class="btn btn-sm btn-outline" href="#" aria-label="Live demo">Live Demo</a>
+            </div>
+          </div>
+        </article>
+        <article class="project-card card">
+          <img src="assets/images/project-placeholder.svg" alt="Project screenshot placeholder">
+          <div class="project-body">
+            <h3>Project Two</h3>
+            <p>Professional description placeholder. Replace with actual project details and achievements.</p>
+            <div class="project-meta">Tech: Python, Azure</div>
+            <div class="project-actions">
+              <a class="btn btn-sm" href="#">GitHub</a>
+              <a class="btn btn-sm btn-outline" href="#">Live Demo</a>
+            </div>
+          </div>
+        </article>
+        <article class="project-card card">
+          <img src="assets/images/project-placeholder.svg" alt="Project screenshot placeholder">
+          <div class="project-body">
+            <h3>Project Three</h3>
+            <p>Professional description placeholder. Replace with actual project details and achievements.</p>
+            <div class="project-meta">Tech: Power Apps, Fabric</div>
+            <div class="project-actions">
+              <a class="btn btn-sm" href="#">GitHub</a>
+              <a class="btn btn-sm btn-outline" href="#">Live Demo</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="brand">Sumit Atkari</div>
+      </div>
+      <div class="copyright">© <span id="year"></span></div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

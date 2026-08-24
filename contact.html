@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Contact — Sumit Atkari. Get in touch via email or socials." />
+  <title>Contact — Sumit Atkari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Sumit Atkari</a>
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Contact</h1>
+        <p class="hero-sub muted">Send a message or connect on socials.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+          <form id="contactForm" class="contact-form card" aria-label="Contact form"
+            name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <!-- Netlify form name -->
+          <input type="hidden" name="form-name" value="contact">
+          <!-- Honeypot field (hidden from users) -->
+          <input type="hidden" name="bot-field" id="bot-field" />
+          <h2 class="hero-title" style="font-size:1.25rem">INITIATE CONNECTION</h2>
+          <p class="muted">Have a project, opportunity, or idea? Let's build something amazing.</p>
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" required>
+          <div class="field-error" id="error-name" aria-live="polite"></div>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+          <div class="field-error" id="error-email" aria-live="polite"></div>
+
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" required>
+          <div class="field-error" id="error-subject" aria-live="polite"></div>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <div class="field-error" id="error-message" aria-live="polite"></div>
+
+          <button type="submit" class="btn btn-primary">SEND</button>
+          <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+        <!-- Optional reCAPTCHA scaffolding:
+             To enable, register site at https://www.google.com/recaptcha/admin
+             Then add the site key & secret in Netlify Dashboard -> Site settings -> Forms -> reCAPTCHA
+             Uncomment the line below to enable Netlify's reCAPTCHA hook once configured.
+
+        <div data-netlify-recaptcha="true"></div>
+
+        -->
+
+        <aside class="contact-info card glass">
+          <h3>Reach Out</h3>
+          <p class="muted">Or connect via socials and email.</p>
+          <p>Email: <a href="mailto:sumitatkari24@gmail.com">sumitatkari24@gmail.com</a></p>
+          <p>Socials:</p>
+          <div class="socials">
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Instagram</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="brand">Sumit Atkari</div>
+      </div>
+      <div class="copyright">© <span id="year"></span></div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

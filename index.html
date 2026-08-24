@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sumit Atkari — Digital Media Enthusiast, Developer and Tech Enthusiast. Portfolio showcasing projects, skills, certifications and experience." />
+  <title>Sumit Atkari — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home">Sumit Atkari</a>
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-list" id="navList">
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-title">INITIALIZING PORTFOLIO...</div>
+      <div class="loader-sub">LOADING SYSTEM...</div>
+      <div class="loader-progress"><span></span></div>
+      <div class="loader-name">SUMIT ATKARI</div>
+    </div>
+  </div>
+
+  <div id="bgWrap">
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+    <div id="bgGrid" aria-hidden="true"></div>
+  </div>
+
+  <div id="scrollProgress" aria-hidden="true"></div>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow status"><span class="status-dot"></span> AVAILABLE FOR OPPORTUNITIES</p>
+          <h1 class="hero-title neon">SUMIT <span class="accent">ATKARI</span></h1>
+          <p class="hero-sub neon-sub">Developer | Digital Media Enthusiast | Tech Enthusiast</p>
+          <p class="hero-desc">I design and build cinematic, high-performance web experiences combining modern web technologies, cloud platforms and AI.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="projects.html">Explore Portfolio</a>
+            <a class="btn btn-ghost" href="contact.html">Contact Me</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="profile-frame card glass">
+            <div class="particle-orbit" aria-hidden="true"></div>
+            <img src="assets/images/profile.svg" alt="Illustration of Sumit Atkari" class="profile-illustration neon-glow">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 id="about-heading" class="section-title">About Me</h2>
+        <div class="about-grid">
+          <div class="about-text card glass">
+            <h3>Professional Introduction</h3>
+            <p>Hello — I’m Sumit, a digital media enthusiast and developer with a passion for creating polished, user-centered digital products. My interests include cloud platforms, low-code tools, and AI-driven solutions.</p>
+            <h4>Education & Goals</h4>
+            <p>Currently focused on upskilling in cloud and generative AI, aiming to deliver impactful solutions for modern applications.</p>
+          </div>
+          <aside class="about-stats">
+            <div class="stats-grid">
+              <div class="stat card">
+                <div class="stat-icon">📁</div>
+                <div class="stat-body">
+                  <div class="stat-value">12+</div>
+                  <div class="stat-label">Projects</div>
+                </div>
+              </div>
+              <div class="stat card">
+                <div class="stat-icon">🎓</div>
+                <div class="stat-body">
+                  <div class="stat-value">5</div>
+                  <div class="stat-label">Certifications</div>
+                </div>
+              </div>
+              <div class="stat card">
+                <div class="stat-icon">🛠️</div>
+                <div class="stat-body">
+                  <div class="stat-value">20+</div>
+                  <div class="stat-label">Skills</div>
+                </div>
+              </div>
+              <div class="stat card">
+                <div class="stat-icon">💼</div>
+                <div class="stat-body">
+                  <div class="stat-value">2</div>
+                  <div class="stat-label">Years Experience</div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- Home contains only Hero and About sections; other pages available via nav -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="brand">Sumit Atkari</div>
+        <div class="tagline">Digital Media Enthusiast & Developer</div>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="copyright">© <span id="year"></span> Sumit Atkari. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
