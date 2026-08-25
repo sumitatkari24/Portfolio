@@ -41,6 +41,31 @@
 		window.addEventListener('scroll', updateScroll, {passive:true});
 		updateScroll();
 
+		// Mobile navigation toggle (adds/removes .nav-open on <body>)
+		(function(){
+			var navToggle = document.getElementById('navToggle');
+			var navList = document.getElementById('navList') || document.querySelector('.nav-list');
+			if(!navToggle) return;
+			navToggle.addEventListener('click', function(e){
+				var opened = document.body.classList.toggle('nav-open');
+				navToggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+			});
+
+			// Close nav when a link is clicked (handle pages where .nav-list has no id)
+			if(navList){
+				navList.addEventListener('click', function(e){
+					var link = e.target.closest && e.target.closest('a');
+					if(link){
+						document.body.classList.remove('nav-open');
+						navToggle.setAttribute('aria-expanded','false');
+					}
+				});
+			}
+
+			// Ensure nav is closed when resizing to desktop
+			window.addEventListener('resize', function(){ if(window.innerWidth > 768){ document.body.classList.remove('nav-open'); navToggle.setAttribute('aria-expanded','false'); }});
+		})();
+
 		// Animate skill fills
 		try{
 			var fills = document.querySelectorAll('.skill-fill[data-percent]');
