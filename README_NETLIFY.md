@@ -63,3 +63,17 @@ Notes: Netlify stores submissions even if notifications are not configured. You 
 This repo includes `netlify.toml` with `publish = "."` and some basic security headers. You can customize it later for redirects or headers.
 
 If you'd like, I can enable reCAPTCHA scaffolding in the form (requires the site & secret keys) or create a Netlify webhook integration (e.g., forward to Slack or automation).
+
+Email via Netlify Function (SendGrid)
+------------------------------------
+
+This repo includes a serverless function at `netlify/functions/send-contact-email.js` that can send incoming form submissions to your email using the SendGrid API. To enable it:
+
+- Add the following environment variables in Netlify (Site → Settings → Build & deploy → Environment):
+  - `SENDGRID_API_KEY` — your SendGrid API key
+  - `FROM_EMAIL` — sender address (e.g. no-reply@yourdomain.com)
+  - `TO_EMAIL` — recipient address (your email)
+
+- The client form will still submit to Netlify Forms for storage and also call the function so submissions are emailed immediately.
+
+Security: store the SendGrid API key in Netlify environment variables — do not commit keys to this repository.

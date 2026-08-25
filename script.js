@@ -90,6 +90,7 @@
 				var body = new URLSearchParams();
 				for(var pair of data.entries()){ body.append(pair[0], pair[1]); }
 
+				// Submit to Netlify Forms (keeps Netlify form storage)
 				fetch('/', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -103,6 +104,18 @@
 					}
 				}).catch(function(){ if(statusEl) statusEl.textContent = 'Submission failed. Please try again later.'; })
 				.finally(function(){ if(submitBtn) submitBtn.disabled = false; });
+
+				// Also POST to Netlify Function to send an email (requires SENDGRID_API_KEY in Netlify env)
+				try {
+					fetch('/.netlify/functions/send-contact-email', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ name: name, email: email, subject: subject, message: message })
+					}).then(function(r){
+						// optional: log or surface errors silently
+						if(!r.ok){ console.warn('Email function responded with', r.status); }
+					}).catch(function(err){ console.warn('Email function error', err); });
+				} catch(e) { console.warn('Email function call failed', e); }
 			});
 		})();
 
