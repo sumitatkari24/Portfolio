@@ -91,7 +91,9 @@
 				for(var pair of data.entries()){ body.append(pair[0], pair[1]); }
 
 				// Submit to Netlify Forms (keeps Netlify form storage)
-				fetch('/', {
+				// Use the form's action or current path so Netlify recognizes the submission
+				var submitPath = form.getAttribute('action') || window.location.pathname || '/';
+				fetch(submitPath, {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 					body: body.toString()
@@ -100,7 +102,10 @@
 						if(statusEl){ statusEl.textContent = "Message Sent Successfully! Thank you — I'll get back to you soon."; statusEl.classList.add('form-success'); }
 						form.reset();
 					} else {
-						if(statusEl){ statusEl.textContent = 'Submission failed. Please try again later.'; }
+						// Attempt to read server response text for debugging
+						res.text().then(function(txt){
+							if(statusEl){ statusEl.textContent = 'Submission failed: ' + (txt || res.statusText || 'Please try again later.'); }
+						}).catch(function(){ if(statusEl){ statusEl.textContent = 'Submission failed. Please try again later.'; } });
 					}
 				}).catch(function(){ if(statusEl) statusEl.textContent = 'Submission failed. Please try again later.'; })
 				.finally(function(){ if(submitBtn) submitBtn.disabled = false; });
