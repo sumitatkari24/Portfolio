@@ -92,23 +92,50 @@
 
 				// Submit to Netlify Forms (keeps Netlify form storage)
 				// Use the form's action or current path so Netlify recognizes the submission
-				var submitPath = form.getAttribute('action') || window.location.pathname || '/';
-				fetch(submitPath, {
-					method: 'POST',
-					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-					body: body.toString()
-				}).then(function(res){
-					if(res.ok){
-						if(statusEl){ statusEl.textContent = "Message Sent Successfully! Thank you — I'll get back to you soon."; statusEl.classList.add('form-success'); }
-						form.reset();
-					} else {
-						// Attempt to read server response text for debugging
+				var submitPath = (form.getAttribute('action') || window.location.pathname || '/');
+				// Try several likely endpoints (clean path, trailing slash, .html) because Netlify recognizes forms by the HTML path at build time
+				var clean = submitPath.replace(/\/?$/, '');
+				var candidates = [submitPath, clean + '/', clean + '.html', clean.replace(/\.html$/, ''), '/contact/', '/contact', '/'];
+
+				var tried = 0;
+				function tryPost(paths){
+					if(!paths || !paths.length){
+						if(statusEl) statusEl.textContent = 'Submission failed: no endpoint available.';
+						if(submitBtn) submitBtn.disabled = false;
+						return;
+					}
+					var p = paths.shift();
+					tried++;
+					fetch(p, {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+						body: body.toString()
+					}).then(function(res){
+						if(res.ok){
+							if(statusEl){ statusEl.textContent = "Message Sent Successfully! Thank you — I'll get back to you soon."; statusEl.classList.add('form-success'); }
+							form.reset();
+							if(submitBtn) submitBtn.disabled = false;
+							return;
+						}
+						// If 404, try next candidate
+						if(res.status === 404 && paths.length){
+							tryPost(paths);
+							return;
+						}
+						// Show server response where possible
 						res.text().then(function(txt){
 							if(statusEl){ statusEl.textContent = 'Submission failed: ' + (txt || res.statusText || 'Please try again later.'); }
-						}).catch(function(){ if(statusEl){ statusEl.textContent = 'Submission failed. Please try again later.'; } });
-					}
-				}).catch(function(){ if(statusEl) statusEl.textContent = 'Submission failed. Please try again later.'; })
-				.finally(function(){ if(submitBtn) submitBtn.disabled = false; });
+						}).catch(function(){ if(statusEl){ statusEl.textContent = 'Submission failed. Please try again later.'; } })
+						.finally(function(){ if(submitBtn) submitBtn.disabled = false; });
+					}).catch(function(){
+						// network error: try next if available
+						if(paths.length){ tryPost(paths); return; }
+						if(statusEl) statusEl.textContent = 'Submission failed: network error.';
+						if(submitBtn) submitBtn.disabled = false;
+					});
+				}
+
+				tryPost(candidates.slice());
 
 				// Also POST to Netlify Function to send an email (requires SENDGRID_API_KEY in Netlify env)
 				try {
