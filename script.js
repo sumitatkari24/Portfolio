@@ -144,10 +144,29 @@
 						headers: { 'Content-Type': 'application/json' },
 						body: JSON.stringify({ name: name, email: email, subject: subject, message: message })
 					}).then(function(r){
-						// optional: log or surface errors silently
-						if(!r.ok){ console.warn('Email function responded with', r.status); }
-					}).catch(function(err){ console.warn('Email function error', err); });
-				} catch(e) { console.warn('Email function call failed', e); }
+						return r.text().then(function(txt){
+							if(!r.ok){
+								console.warn('Email function responded with', r.status, txt);
+								if(statusEl){
+									var prev = statusEl.textContent || '';
+									statusEl.textContent = prev + ' (Email not sent: ' + (txt || r.statusText || r.status) + ')';
+								}
+							}
+						});
+					}).catch(function(err){
+						console.warn('Email function error', err);
+						if(statusEl){
+							var prev = statusEl.textContent || '';
+							statusEl.textContent = prev + ' (Email function error)';
+						}
+					});
+				} catch(e) {
+					console.warn('Email function call failed', e);
+					if(statusEl){
+						var prev = statusEl.textContent || '';
+						statusEl.textContent = prev + ' (Email call failed)';
+					}
+				}
 			});
 		})();
 
