@@ -1,0 +1,106 @@
+[
+  {
+    "title": "Microsoft Applied Skills: Get started with classes, properties, and methods in C#",
+    "issuer": "Microsoft",
+    "year": "2025",
+    "platform": "Microsoft Applied Skills",
+    "filename": "2d1312de-f52e-4b83-a978-fef9f0496ffd.jpg",
+    "description": "Built core C# programming confidence with classes, properties, and method-based logic for structured application development."
+  },
+  {
+    "title": "Professional Communication",
+    "issuer": "Pearson",
+    "year": "2026",
+    "platform": "Professional Certificate",
+    "filename": "2d68945e-9975-4ff0-8c3b-7198479ca9fa.jpg",
+    "description": "Completed a professional communication credential focused on clear expression, workplace communication, and effective presentation skills."
+  },
+  {
+    "title": "Microsoft Applied Skills: Configure secure access to your workloads using Azure networking",
+    "issuer": "Microsoft",
+    "year": "2025",
+    "platform": "Microsoft Applied Skills",
+    "filename": "3994f31e-c630-4d60-afcb-7bdd30fdffee.jpg",
+    "description": "Learned how to design secure networking access patterns and protect workloads with Azure-based security controls."
+  },
+  {
+    "title": "Microsoft Applied Skills: Administer Active Directory Domain Services",
+    "issuer": "Microsoft",
+    "year": "2025",
+    "platform": "Microsoft Applied Skills",
+    "filename": "4ee673c5-d339-40ae-a8e2-26bbf557cf37.jpg",
+    "description": "Practiced identity infrastructure management, domain services administration, and core Windows server directory tasks."
+  },
+  {
+    "title": "Microsoft Applied Skills: Generate reports with AI research agents",
+    "issuer": "Microsoft",
+    "year": "2025",
+    "platform": "Microsoft Applied Skills",
+    "filename": "77767eeb-5262-46b1-862a-6fe0b520d33d.jpg",
+    "description": "Explored AI-assisted research workflows and reporting techniques to turn information into structured business insights."
+  },
+  {
+    "title": "Python Essentials 1",
+    "issuer": "Cisco Networking Academy",
+    "year": "2025",
+    "platform": "Networking Academy",
+    "filename": "Python_Essentials_1.pdf",
+    "description": "Covered Python basics, syntax, data handling, and problem-solving foundations for beginner-level programming."
+  },
+  {
+    "title": "Python Essentials 2",
+    "issuer": "Cisco Networking Academy",
+    "year": "2025",
+    "platform": "Networking Academy",
+    "filename": "Python_Essentials_2.pdf",
+    "description": "Advanced Python concepts including functions, modules, working with data structures, and practical coding patterns."
+  },
+  {
+    "title": "Microsoft Applied Skills: Implement information protection and data loss prevention by using Microsoft Purview",
+    "issuer": "Microsoft",
+    "year": "2025",
+    "platform": "Microsoft Applied Skills",
+    "filename": "ddd4b7eb-1802-444c-a809-bcda6e3f572a.jpg",
+    "description": "Applied Microsoft Purview controls to prevent data leakage and enforce information protection policies across digital assets."
+  },
+  {
+    "title": "Microsoft Applied Skills: Implement retention, eDiscovery, and Communication Compliance in Microsoft Purview",
+    "issuer": "Microsoft",
+    "year": "2025",
+    "platform": "Microsoft Applied Skills",
+    "filename": "e0063ead-62ba-427a-bcad-4e8e9ff4732a.jpg",
+    "description": "Focused on compliance operations such as retention, case management, eDiscovery, and communication monitoring."
+  },
+  {
+    "title": "Microsoft Applied Skills: Create and manage canvas apps with Power Apps",
+    "issuer": "Microsoft",
+    "year": "2025",
+    "platform": "Microsoft Applied Skills",
+    "filename": "e2f219b1-9958-44f4-9539-71cf6c750e1b.jpg",
+    "description": "Built low-code business applications with canvas app design, data connections, and process automation flows."
+  },
+  {
+    "title": "Microsoft Applied Skills: Prepare security and compliance to support Microsoft 365 Copilot",
+    "issuer": "Microsoft",
+    "year": "2025",
+    "platform": "Microsoft Applied Skills",
+    "filename": "e3324f87-7867-48d6-836f-5b577a625ce0.jpg",
+    "description": "Learned how to align security, governance, and compliance practices for AI-ready Microsoft 365 environments."
+  },
+  {
+    "title": "Microsoft Applied Skills: Get started with identities and access using Microsoft Entra",
+    "issuer": "Microsoft",
+    "year": "2025",
+    "platform": "Microsoft Applied Skills",
+    "filename": "eb548519-16df-4383-a087-4f7094a00e20.jpg",
+    "description": "Covered identity foundations, access management, and secure sign-in patterns using Microsoft Entra."
+  },
+  {
+    "title": "Microsoft Applied Skills: Create and manage automated processes by using Power Automate",
+    "issuer": "Microsoft",
+    "year": "2025",
+    "platform": "Microsoft Applied Skills",
+    "filename": "f93bc5e9-a24d-4a41-945f-8fbb91791569.jpg",
+    "description": "Built workflow automation solutions for repetitive business tasks using Power Automate and connected data sources."
+  }
+]

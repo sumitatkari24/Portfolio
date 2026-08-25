@@ -105,5 +105,107 @@
 				.finally(function(){ if(submitBtn) submitBtn.disabled = false; });
 			});
 		})();
+
+		// Certificate lightbox modal
+		(function(){
+			var modal = document.getElementById('certModal');
+			var modalImg = document.getElementById('certModalImg');
+			var modalCaption = document.getElementById('certModalCaption');
+			var closeBtn = document.getElementById('certModalClose');
+
+			function openModal(href, title){
+				if(!modal || !modalImg) return;
+				modalImg.src = href;
+				modalCaption.textContent = title || '';
+				modal.setAttribute('aria-hidden','false');
+				document.body.style.overflow = 'hidden';
+			}
+			function closeModal(){
+				if(!modal) return;
+				modal.setAttribute('aria-hidden','true');
+				modalImg.src = '';
+				document.body.style.overflow = '';
+			}
+
+			document.addEventListener('click', function(e){
+				var t = e.target;
+				if(t && t.classList && t.classList.contains('cert-view')){
+					e.preventDefault();
+					var href = t.getAttribute('href');
+					var isImage = /\.(png|jpe?g|gif|webp|svg)$/i.test(href);
+					if(!isImage){
+						window.open(href, '_blank', 'noopener,noreferrer');
+						return;
+					}
+					var title = t.closest('.cert-card') ? (t.closest('.cert-card').querySelector('h3') || {}).textContent : '';
+					openModal(href, title);
+				}
+				if(t && (t.id === 'certModal' || t.id === 'certModalClose' || t.classList.contains('cert-modal'))){
+					closeModal();
+				}
+			});
+			document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeModal(); } });
+		})();
+
+		// Load certificates from manifest if present and render into all .cert-grid blocks
+		(function(){
+			var grids = document.querySelectorAll('.cert-grid');
+			if(!grids.length) return;
+			fetch('assets/certificates/index.json').then(function(res){
+				if(!res.ok) return null;
+				return res.json();
+			}).then(function(list){
+				if(!list || !Array.isArray(list)) return;
+				grids.forEach(function(certGrid){
+					certGrid.innerHTML = '';
+					list.forEach(function(c){
+						var div = document.createElement('div');
+						div.className = 'cert-card card';
+
+					var head = document.createElement('div'); head.className = 'cert-card-head';
+					var badge = document.createElement('span'); badge.className = 'cert-badge'; badge.textContent = c.platform || c.issuer || 'Certificate';
+					var year = document.createElement('span'); year.className = 'cert-year'; year.textContent = c.year || '2025';
+					head.appendChild(badge); head.appendChild(year);
+
+					var h3 = document.createElement('h3'); h3.textContent = c.title || 'Certificate';
+					var p1 = document.createElement('p'); p1.className='muted cert-meta'; p1.textContent = 'Issued by: ' + (c.issuer || '—');
+					var p2 = document.createElement('p'); p2.className = 'cert-desc'; p2.textContent = c.description || '';
+
+					var href = 'assets/certificates/' + (c.filename || c.file || 'placeholder-cert.png');
+					var a = document.createElement('a'); a.className='btn btn-sm cert-view'; a.href = href; a.rel='noopener'; a.textContent = /\.(pdf)$/i.test(href) ? 'Open Certificate' : 'View Certificate';
+
+					div.appendChild(head); div.appendChild(h3); div.appendChild(p1); div.appendChild(p2); div.appendChild(a);
+						certGrid.appendChild(div);
+					});
+				});
+			}).catch(function(){ /* ignore manifest load errors */ });
+		})();
+
+		// Client-side upload preview for certificates (non-persistent)
+		(function(){
+			var upload = document.getElementById('certUpload');
+			var certGrid = document.querySelector('.cert-grid');
+			if(!upload || !certGrid) return;
+			upload.addEventListener('change', function(e){
+				var files = Array.from(upload.files || []);
+				if(!files.length) return;
+				certGrid.innerHTML = '';
+				files.forEach(function(f){
+					var url = URL.createObjectURL(f);
+					var div = document.createElement('div');
+					div.className = 'cert-card card';
+					var head = document.createElement('div'); head.className='cert-card-head';
+					var badge = document.createElement('span'); badge.className='cert-badge'; badge.textContent = 'Uploaded Certificate';
+					var year = document.createElement('span'); year.className='cert-year'; year.textContent = 'New';
+					head.appendChild(badge); head.appendChild(year);
+					var h3 = document.createElement('h3'); h3.textContent = f.name.replace(/\.[^/.]+$/, '');
+					var p1 = document.createElement('p'); p1.className='muted cert-meta'; p1.textContent = 'Custom upload';
+					var p2 = document.createElement('p'); p2.className='cert-desc'; p2.textContent = 'Uploaded certificate preview ready to open in the modal.';
+					var a = document.createElement('a'); a.className='btn btn-sm cert-view'; a.href = url; a.rel='noopener'; a.textContent = /\.(pdf)$/i.test(f.name) ? 'Open Certificate' : 'View Certificate';
+					div.appendChild(head); div.appendChild(h3); div.appendChild(p1); div.appendChild(p2); div.appendChild(a);
+					certGrid.appendChild(div);
+				});
+			});
+		})();
 	});
 })();

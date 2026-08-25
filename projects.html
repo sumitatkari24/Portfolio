@@ -15,10 +15,12 @@
       <nav class="nav" aria-label="Primary">
         <ul class="nav-list">
           <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="skills.html" class="nav-link">Skills</a></li>
           <li><a href="projects.html" class="nav-link active">Projects</a></li>
           <li><a href="certifications.html" class="nav-link">Certifications</a></li>
-          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
       <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
@@ -34,40 +36,19 @@
     </section>
 
     <section class="section">
-      <div class="container projects-grid">
-        <article class="project-card card">
-          <img src="assets/images/project-placeholder.svg" alt="Project screenshot placeholder">
-          <div class="project-body">
-            <h3>Project One</h3>
-            <p>Professional description placeholder. Replace with actual project details and achievements.</p>
-            <div class="project-meta">Tech: HTML, CSS, JavaScript</div>
-            <div class="project-actions">
-              <a class="btn btn-sm" href="#" aria-label="GitHub">GitHub</a>
-              <a class="btn btn-sm btn-outline" href="#" aria-label="Live demo">Live Demo</a>
-            </div>
+      <div class="container">
+        <article class="project-feature card">
+          <div class="project-feature-media">
+            <img src="1775162880681.jpg" alt="Eventura — Journeys project preview">
           </div>
-        </article>
-        <article class="project-card card">
-          <img src="assets/images/project-placeholder.svg" alt="Project screenshot placeholder">
-          <div class="project-body">
-            <h3>Project Two</h3>
-            <p>Professional description placeholder. Replace with actual project details and achievements.</p>
-            <div class="project-meta">Tech: Python, Azure</div>
+          <div class="project-feature-body">
+            <div class="project-kicker">Featured Project</div>
+            <h3>Eventura — Journeys</h3>
+            <p>A premium event and journey experience crafted to make event discovery, exploration, and engagement feel smooth, engaging, and memorable for users.</p>
+            <div class="project-meta">Tech: Frontend Design, UI/UX, Web Experience, Responsive Development</div>
             <div class="project-actions">
-              <a class="btn btn-sm" href="#">GitHub</a>
-              <a class="btn btn-sm btn-outline" href="#">Live Demo</a>
-            </div>
-          </div>
-        </article>
-        <article class="project-card card">
-          <img src="assets/images/project-placeholder.svg" alt="Project screenshot placeholder">
-          <div class="project-body">
-            <h3>Project Three</h3>
-            <p>Professional description placeholder. Replace with actual project details and achievements.</p>
-            <div class="project-meta">Tech: Power Apps, Fabric</div>
-            <div class="project-actions">
-              <a class="btn btn-sm" href="#">GitHub</a>
-              <a class="btn btn-sm btn-outline" href="#">Live Demo</a>
+              <a class="btn btn-sm btn-primary" href="https://ej2.onrender.com" target="_blank" rel="noreferrer" aria-label="Explore Eventura journeys">🌐 Explore the Project</a>
+              <a class="btn btn-sm btn-ghost" href="https://lnkd.in/dmKSNjpr" target="_blank" rel="noreferrer" aria-label="View GitHub profile">💻 GitHub</a>
             </div>
           </div>
         </article>
@@ -75,12 +56,30 @@
     </section>
   </main>
 
+  <!-- Reuse certificate modal so clicking opens inline -->
+  <div id="certModal" class="cert-modal" aria-hidden="true">
+    <div class="cert-modal-inner">
+      <button id="certModalClose" class="btn btn-sm btn-ghost">Close</button>
+      <div class="cert-modal-media">
+        <img id="certModalImg" src="" alt="Certificate image">
+      </div>
+      <div id="certModalCaption" class="muted" aria-hidden="true"></div>
+    </div>
+  </div>
+
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-left">
         <div class="brand">Sumit Atkari</div>
+        <div class="tagline">Digital Media Enthusiast & Developer</div>
       </div>
-      <div class="copyright">© <span id="year"></span></div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="copyright">© <span id="year"></span> Sumit Atkari. All rights reserved.</div>
     </div>
   </footer>
   <script src="script.js"></script>
