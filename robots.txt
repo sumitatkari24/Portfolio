@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://https://sumitatkariportfolio.netlify.app//sitemap.xml
